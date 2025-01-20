@@ -15,112 +15,159 @@
 
   <style>
       body {
-        background-image: url(images/wallpaper.jpg);
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+          background-image: url(images/wallpaper.jpg);
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
       }
  	
       #clock {
-        color: #ffffff;
-        font-family: Tahoma, "Trebuchet MS", sans-serif;
-        font-weight: 600;
-        text-align: center;
-        font-size: 150px;
+          color: #ffffff;
+          font-family: Tahoma, "Trebuchet MS", sans-serif;
+          font-weight: 600;
+          text-align: center;
+          font-size: 150px;
       }
       
       h1 {
-        font-family: arial;
-        color: #ffffff;
-        padding-left: 10%;
-        font-size: 28px;
+          font-family: arial;
+          color: #ffffff;
+          padding-left: 10%;
+          font-size: 28px;
+      }
+      
+      a {
+          text-decoration: none;
       }
       
       .gridtext {
-        text-align: center;
-        font-family: arial;
-        white-space: normal;
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 12px;
-        padding-top: 80px;
+          text-align: center;
+          font-family: arial;
+          white-space: normal;
+          text-decoration: none;
+          color: #ffffff;
+          font-size: 12px;
+          padding-top: 80px;
       }
       
-    .bookmark-media-sharesheet {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    row-gap: 50px;
-    padding-left: 10%;
-}
+      .bookmark-media-sharesheet {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          row-gap: 50px;
+          padding-left: 10%;
+      }
 
-.bookmark-icon {
-    width: 75px;
-    height: 75px;
-    display: block;
-    background-size: cover;
-    background-position: center;
-}
+      .bookmark-icon {
+          width: 75px;
+          height: 75px;
+          display: block;
+          background-size: cover;
+          background-position: center;
+      }
 
-.bookmark-icon.acadiau {
-    background-image: url('assets/bookmarks/university.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.acadiau {
+          background-image: url('assets/bookmarks/university.png');
+          width: 75px;
+          height: 75px;
+      }
 
-.bookmark-icon.outlook {
-    background-image: url('assets/bookmarks/outlook.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.outlook {
+          background-image: url('assets/bookmarks/outlook.png');
+          width: 75px;
+          height: 75px;
+      }
 
-.bookmark-icon.moodle {
-    background-image: url('assets/bookmarks/moodle.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.moodle {
+          background-image: url('assets/bookmarks/moodle.png');
+          width: 75px;
+          height: 75px;
+      }
 
-.bookmark-icon.collss {
-    background-image: url('assets/bookmarks/collss.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.collss {
+          background-image: url('assets/bookmarks/collss.png');
+          width: 75px;
+          height: 75px;
+      }
 
-.bookmark-icon.hub {
-    background-image: url('assets/bookmarks/hub.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.hub {
+          background-image: url('assets/bookmarks/hub.png');
+          width: 75px;
+          height: 75px;
+      }
 
-.bookmark-icon.brytewave {
-    background-image: url('assets/bookmarks/brytewave.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.brytewave {
+          background-image: url('assets/bookmarks/brytewave.png');
+          width: 75px;
+          height: 75px;
+      }
 
-.bookmark-icon.library {
-    background-image: url('assets/bookmarks/library.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.library {
+          background-image: url('assets/bookmarks/library.png');
+          width: 75px;
+          height: 75px;
+      }
 
-.bookmark-icon.residence {
-    background-image: url('assets/bookmarks/residence.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.residence {
+          background-image: url('assets/bookmarks/residence.png');
+          width: 75px;
+          height: 75px;
+      }
 
-.bookmark-icon.pearson {
-    background-image: url('assets/bookmarks/pearson.png');
-    width: 75px;
-    height: 75px;
-}
-.bookmark-icon.list {
-    background-image: url('assets/bookmarks/list.png');
-    width: 75px;
-    height: 75px;
-}
+      .bookmark-icon.pearson {
+          background-image: url('assets/bookmarks/pearson.png');
+          width: 75px;
+          height: 75px;
+      }
+      
+      .bookmark-icon.list {
+          background-image: url('assets/bookmarks/list.png');
+          width: 75px;
+          height: 75px;
+      }
+
+      .bookmark-icon.gmail {
+          background-image: url('assets/bookmarks/gmail.png');
+          width: 75px;
+          height: 75px;
+      }
+
+      .bookmark-icon.docs {
+          background-image: url('assets/bookmarks/docs.png');
+          width: 75px;
+          height: 75px;
+      }
+
+      .bookmark-icon.slides {
+          background-image: url('assets/bookmarks/slides.png');
+          width: 75px;
+          height: 75px;
+      }
+
+      .bookmark-icon.sheets {
+          background-image: url('assets/bookmarks/sheets.png');
+          width: 75px;
+          height: 75px;
+      }
+
+      .bookmark-icon.sites {
+          background-image: url('assets/bookmarks/sites.png');
+          width: 75px;
+          height: 75px;
+      }
+
+      .bookmark-icon.drive {
+          background-image: url('assets/bookmarks/drive.png');
+          width: 75px;
+          height: 75px;
+      }
+      
+      .bookmark-icon.youtube {
+          background-image: url('assets/bookmarks/youtube.png');
+          width: 75px;
+          height: 75px;
+      }
   </style>
 </head>
 <body onload="startTime()">
@@ -131,16 +178,47 @@
     <h1>Acadia University</h1>
     
     <div class="bookmark-media-sharesheet">
+        
         <a href="https://www2.acadiau.ca/home.html" aria-label="Acadia University" target="_self" rel="noopener noreferrer" class="bookmark-icon acadiau"><div class="gridtext">Acadia University</div></a>
+        
         <a href="https://outlook.office.com/mail/" aria-label="Outlook" target="_self" rel="noopener noreferrer" class="bookmark-icon outlook"><div class="gridtext">Outlook (0307744m)</div></a>
+        
         <a href="https://moodle.acadiau.ca/my/" aria-label="Moodle" target="_self" rel="noopener noreferrer" class="bookmark-icon moodle"><div class="gridtext">Moodle (Acorn)</div></a>
+        
         <a href="https://collss.acadiau.ca/" aria-label="Colleague Self Service" target="_self" rel="noopener noreferrer" class="bookmark-icon collss"><div class="gridtext">Colleague Self Service</div></a>
+        
         <a href="https://hub.acadiau.ca/TDClient/39/Portal/Home/" aria-label="Hub Service Portal" target="_self" rel="noopener noreferrer" class="bookmark-icon hub"><div class="gridtext">Hub Service Portal</div></a>
+        
         <a href="https://brytewave.redshelf.com/app/ecom/shelf" aria-label="Brytewave Reader" target="_self" rel="noopener noreferrer" class="bookmark-icon brytewave"><div class="gridtext">Brytewave (Textbooks)</div></a>
+        
         <a href="https://library.acadiau.ca/home.html" aria-label="Vaughan Memorial Library" target="_self" rel="noopener noreferrer" class="bookmark-icon library"><div class="gridtext">Acadia Library</div></a>
+        
         <a href="https://acadiau.starrezhousing.com/StarRezPortal/" aria-label="Star Rez Acadia" target="_self" rel="noopener noreferrer" class="bookmark-icon residence"><div class="gridtext">Residence Portal</div></a>
+        
         <a href="https://plus.pearson.com/home" aria-label="Pearson +" target="_self" rel="noopener noreferrer" class="bookmark-icon pearson"><div class="gridtext">Pearson + (Textbooks)</div></a>
+        
         <a href="https://docs.google.com/spreadsheets/d/1i-HE3LYKgedfjSE7UOc6swlQM8HRjWxuPJLHfwFdSY4/" aria-label="To Do List" target="_self" rel="noopener noreferrer" class="bookmark-icon list"><div class="gridtext">To Do List</div></a>
+
+    </div>
+ 
+    <br>
+    <br>
+    <h1>Google Apps</h1>
+    <div class="bookmark-media-sharesheet">
+        
+        <a href="https://www.mail.google.com/" aria-label="Gmail" target="_self" rel="noopener noreferrer" class="bookmark-icon gmail"><div class="gridtext">Gmail</div></a>
+        
+        <a href="https://docs.google.com/" aria-label="Google Docs" target="_self" rel="noopener noreferrer" class="bookmark-icon docs"><div class="gridtext">Google Docs</div></a>
+        
+        <a href="https://slides.google.com/" aria-label="Google Slides" target="_self" rel="noopener noreferrer" class="bookmark-icon slides"><div class="gridtext">Google Slides</div></a>
+        
+        <a href="https://sheets.google.com/" aria-label="Google Sheets" target="_self" rel="noopener noreferrer" class="bookmark-icon sheets"><div class="gridtext">Google Sheets</div></a>
+        
+        <a href="https://sites.google.com/" aria-label="Google Sites" target="_self" rel="noopener noreferrer" class="bookmark-icon sites"><div class="gridtext">Google Sites</div></a>
+        
+        <a href="https://drive.google.com/" aria-label="Google Drive" target="_self" rel="noopener noreferrer" class="bookmark-icon drive"><div class="gridtext">Google Drive</div></a>
+        
+        <a href="https://www.youtube.com/" aria-label="YouTube" target="_self" rel="noopener noreferrer" class="bookmark-icon youtube"><div class="gridtext">YouTube</div></a>
 
     </div>
     
