@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="refresh" content="300">
+
+  <title>New Tab</title>
+  <meta name="description" content="New Tab">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+      body {
+        background-image: url(images/wallpaper.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+ 	
+      #clock {
+        color: #ffffff;
+        font-family: Tahoma, "Trebuchet MS", sans-serif;
+        font-weight: 600;
+        text-align: center;
+        font-size: 150px;
+      }
+      
+      h1 {
+        font-family: arial;
+        color: #ffffff;
+        padding-left: 10%;
+        font-size: 28px;
+      }
+      
+      .gridtext {
+        text-align: center;
+        font-family: arial;
+        white-space: normal;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 12px;
+        padding-top: 80px;
+      }
+      
+      .bookmark-media-sharesheet {
+    display: flex;
+    gap: 20px;
+    padding-left: 10%;
+}
+
+.bookmark-icon {
+    width: 75px;
+    height: 75px;
+    display: block;
+    background-size: cover;
+    background-position: center;
+}
+
+.bookmark-icon.acadiau {
+    background-image: url('assets/bookmarks/university.png');
+    width: 75px;
+    height: 75px;
+}
+
+.bookmark-icon.outlook {
+    background-image: url('assets/bookmarks/outlook.png');
+    width: 75px;
+    height: 75px;
+}
+
+.bookmark-icon.moodle {
+    background-image: url('assets/bookmarks/moodle.png');
+    width: 75px;
+    height: 75px;
+}
+
+.bookmark-icon.collss {
+    background-image: url('assets/bookmarks/collss.png');
+    width: 75px;
+    height: 75px;
+}
+
+.bookmark-icon.hub {
+    background-image: url('assets/bookmarks/hub.png');
+    width: 75px;
+    height: 75px;
+}
+
+.bookmark-icon.brytewave {
+    background-image: url('assets/bookmarks/brytewave.png');
+    width: 75px;
+    height: 75px;
+}
+
+.bookmark-icon.library {
+    background-image: url('assets/bookmarks/library.png');
+    width: 75px;
+    height: 75px;
+}
+
+.bookmark-icon.residence {
+    background-image: url('assets/bookmarks/residence.png');
+    width: 75px;
+    height: 75px;
+}
+
+.bookmark-icon.pearson {
+    background-image: url('assets/bookmarks/pearson.png');
+    width: 75px;
+    height: 75px;
+}
+.bookmark-icon.list {
+    background-image: url('assets/bookmarks/list.png');
+    width: 75px;
+    height: 75px;
+}
+  </style>
+</head>
+<body onload="startTime()">
+
+    <div id="clock"></div>
+
+    <br>
+    <h1>Acadia University</h1>
+    
+    <div class="bookmark-media-sharesheet">
+        <a href="https://www2.acadiau.ca/home.html" aria-label="Acadia University" target="_self" rel="noopener noreferrer" class="bookmark-icon acadiau"><div class="gridtext">Acadia University</div></a>
+        <a href="https://outlook.office.com/mail/" aria-label="Outlook" target="_self" rel="noopener noreferrer" class="bookmark-icon outlook"><div class="gridtext">Outlook (0307744m)</div></a>
+        <a href="https://moodle.acadiau.ca/my/" aria-label="Moodle" target="_self" rel="noopener noreferrer" class="bookmark-icon moodle"><div class="gridtext">Moodle (Acorn)</div></a>
+        <a href="https://collss.acadiau.ca/" aria-label="Colleague Self Service" target="_self" rel="noopener noreferrer" class="bookmark-icon collss"><div class="gridtext">Colleague Self Service</div></a>
+        <a href="https://hub.acadiau.ca/TDClient/39/Portal/Home/" aria-label="Hub Service Portal" target="_self" rel="noopener noreferrer" class="bookmark-icon hub"><div class="gridtext">Hub Service Portal</div></a>
+        <a href="https://brytewave.redshelf.com/app/ecom/shelf" aria-label="Brytewave Reader" target="_self" rel="noopener noreferrer" class="bookmark-icon brytewave"><div class="gridtext">Brytewave (Textbooks)</div></a>
+        <a href="https://library.acadiau.ca/home.html" aria-label="Vaughan Memorial Library" target="_self" rel="noopener noreferrer" class="bookmark-icon library"><div class="gridtext">Acadia Library</div></a>
+        <a href="https://acadiau.starrezhousing.com/StarRezPortal/" aria-label="Star Rez Acadia" target="_self" rel="noopener noreferrer" class="bookmark-icon residence"><div class="gridtext">Residence Portal</div></a>
+        <a href="https://plus.pearson.com/home" aria-label="Pearson +" target="_self" rel="noopener noreferrer" class="bookmark-icon pearson"><div class="gridtext">Pearson + (Textbooks)</div></a>
+        <a href="https://docs.google.com/spreadsheets/d/1i-HE3LYKgedfjSE7UOc6swlQM8HRjWxuPJLHfwFdSY4/" aria-label="To Do List" target="_self" rel="noopener noreferrer" class="bookmark-icon list"><div class="gridtext">To Do List</div></a>
+
+    </div>
+    
+    <script>
+        function currentTime() {
+            let date = new Date(); 
+            let hh = date.getHours();
+            let mm = date.getMinutes();
+            let ss = date.getSeconds();
+            let session = "";
+
+            if(hh == 0){
+                hh = 12;
+            }
+            
+            if(hh > 12){
+                hh = hh - 12;
+                session = "˙";
+            }
+
+            mm = (mm < 10) ? "0" + mm : mm;
+    
+            let time = session + hh + ":" + mm;
+
+            document.getElementById("clock").innerText = time; 
+            let t = setTimeout(function(){ currentTime() }, 1000);
+        }
+        
+        currentTime();
+    </script>
+
+</body>
+</html>
