@@ -249,6 +249,44 @@
         
         currentTime();
     </script>
+<script>
+    function getFormattedDate() {
+    const date = new Date();
+    const options = { weekday: 'long', month: 'long' };
+    
+    // Get day, month, and weekday
+    const day = date.getDate();
+    const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(date);
+    const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
+    const year = date.getFullYear();
 
+    // Determine the appropriate suffix
+    let suffix = 'th';
+    if (day % 10 === 1 && day !== 11) suffix = 'st';
+    else if (day % 10 === 2 && day !== 12) suffix = 'nd';
+    else if (day % 10 === 3 && day !== 13) suffix = 'rd';
+
+    // Combine components into the final format
+    return `${weekday}, ${month} ${day}${suffix}, ${year}`;
+}
+
+function addDateToPage() {
+    const dateContainer = document.createElement('div');
+    dateContainer.id = 'date-container';
+    dateContainer.style.color = '#ffffff'; // Example: Make it white to match your page
+    dateContainer.style.textAlign = 'center'; // Align to center
+    dateContainer.style.fontFamily = 'Arial, sans-serif';
+    dateContainer.style.fontSize = '20px'; // Adjust as needed
+    dateContainer.textContent = getFormattedDate();
+
+    // Add to the page, e.g., before or after the clock
+    const clock = document.getElementById('clock');
+    clock.parentNode.insertBefore(dateContainer, clock.nextSibling);
+}
+
+// Run on page load
+addDateToPage();
+
+    </script>
 </body>
 </html>
