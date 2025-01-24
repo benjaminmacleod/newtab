@@ -21,7 +21,12 @@
           background-repeat: no-repeat;
           background-attachment: fixed;
       }
- 	
+      
+ 	  h1, #clock, .gridtext, a, div, p {
+          text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
+          color: #ffffff; /* Ensure text color contrasts well with the shadow */
+      }
+
       #clock {
           color: #ffffff;
           font-family: Tahoma, "Trebuchet MS", sans-serif;
@@ -177,7 +182,27 @@
   </style>
 </head>
 <body onload="startTime()">
+<script>
+        // Array of wallpapers
+        const wallpapers = [
+            "images/wallpaper.jpg",
+            "images/wallpaper2.jpg",
+            "images/wallpaper3.jpg",
+            "images/wallpaper4.jpg"
+        ];
 
+        // Current wallpaper index
+        let currentWallpaperIndex = 0;
+
+        // Function to change wallpaper
+        function changeWallpaper() {
+            currentWallpaperIndex = (currentWallpaperIndex + 1) % wallpapers.length; // Cycle through wallpapers
+            document.body.style.backgroundImage = `url(${wallpapers[currentWallpaperIndex]})`;
+        }
+
+        // Add click event listener to the body
+        document.body.addEventListener("click", changeWallpaper);
+    </script>
     <div id="clock"></div>
 
     <br>
