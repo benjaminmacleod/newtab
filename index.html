@@ -182,27 +182,7 @@
   </style>
 </head>
 <body onload="startTime()">
-<script>
-        // Array of wallpapers
-        const wallpapers = [
-            "images/wallpaper.jpg",
-            "images/wallpaper2.jpg",
-            "images/wallpaper3.jpg",
-            "images/wallpaper4.jpg"
-        ];
 
-        // Current wallpaper index
-        let currentWallpaperIndex = 0;
-
-        // Function to change wallpaper
-        function changeWallpaper() {
-            currentWallpaperIndex = (currentWallpaperIndex + 1) % wallpapers.length; // Cycle through wallpapers
-            document.body.style.backgroundImage = `url(${wallpapers[currentWallpaperIndex]})`;
-        }
-
-        // Add click event listener to the body
-        document.body.addEventListener("click", changeWallpaper);
-    </script>
     <div id="clock"></div>
 
     <br>
@@ -239,7 +219,7 @@
     <h1>Google Apps</h1>
     <div class="bookmark-media-sharesheet">
         
-        <a href="https://www.mail.google.com/" aria-label="Gmail" target="_self" rel="noopener noreferrer" class="bookmark-icon gmail"><div class="gridtext">Gmail</div></a>
+        <a href="https://mail.google.com/" aria-label="Gmail" target="_self" rel="noopener noreferrer" class="bookmark-icon gmail"><div class="gridtext">Gmail</div></a>
         
         <a href="https://docs.google.com/" aria-label="Google Docs" target="_self" rel="noopener noreferrer" class="bookmark-icon docs"><div class="gridtext">Google Docs</div></a>
         
