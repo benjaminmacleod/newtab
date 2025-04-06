@@ -52,6 +52,10 @@
           border-radius: 6px;
           box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
       }
+      
+      textarea:focus, input:focus{
+    outline: none;
+}
       .material-symbols-outlined {
         font-size: 16px;
         color: #ffffff;
@@ -244,7 +248,7 @@
     
     <div class="search">
     <form onsubmit="handleSearch(event)">
-        <input type="text" placeholder="Google Search..." id="searchQuery" name="query" required>
+        <input type="text" placeholder="Google Search..." id="searchQuery" name="query" required autofocus>
         <button id="searchButton" type="submit"><span class="material-symbols-outlined">
 search
 </span></button>
