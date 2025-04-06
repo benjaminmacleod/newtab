@@ -12,7 +12,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
 
   <link rel="stylesheet" href="style.css">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />     
   <style>
       body {
           background-image: url(images/wallpaper.jpg);
@@ -33,6 +33,44 @@
           font-weight: 600;
           text-align: center;
           font-size: 150px;
+      }
+      
+      .search {
+            padding-top: 20px;
+            margin: auto;
+            width: 100%;
+            max-width: 600px;
+      }
+      
+      #searchQuery {
+          width: 80%;
+          min-width: 200px;
+          border: none;
+          background-color: #ffffff;
+          font-size: 16px;
+          padding: 5px;
+          border-radius: 6px;
+          box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+      }
+      .material-symbols-outlined {
+        font-size: 16px;
+        color: #ffffff;
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 700,
+            'GRAD' 0,
+            'opsz' 20
+      }
+      #searchButton {
+          width: 20%;
+          display: auto;
+          max-width: 80px;
+          background-color: #4F82C4;
+          border: none;
+          padding: 4.5px;
+          font-size: 16px;
+          border-radius: 6px;
+          box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
       }
       
       h1 {
@@ -182,9 +220,36 @@
   </style>
 </head>
 <body onload="startTime()">
-
+<script>
+        // Function to handle form submission
+        function handleSearch(event) {
+            // Prevent the form from submitting the default way
+            event.preventDefault();
+            
+            // Get the value from the input field
+            var query = document.getElementById('searchQuery').value;
+            
+            // Replace spaces with '+' and encode special characters
+            var formattedQuery = query.replace(/\s+/g, '+');
+            
+            // Construct the URL
+            var searchURL = 'https://www.google.com/search?q=' + formattedQuery + '&udm=14';
+            
+            // Redirect to the Google search page with the formatted query
+            window.location.href = searchURL;
+        }
+    </script>
+    
     <div id="clock"></div>
-
+    
+    <div class="search">
+    <form onsubmit="handleSearch(event)">
+        <input type="text" placeholder="Google Search..." id="searchQuery" name="query" required>
+        <button id="searchButton" type="submit"><span class="material-symbols-outlined">
+search
+</span></button>
+    </form>
+    </div>
     <br>
     <h1>Acadia University</h1>
     
