@@ -241,31 +241,34 @@
 </head>
 <body onload="startTime()">
 <script>
-        // Function to handle form submission
-        function handleSearch(event) {
-            // Prevent the form from submitting the default way
-            event.preventDefault();
-            
-            // Get the value from the input field
-            var query = document.getElementById('searchQuery').value;
-            
-            // Replace spaces with '+' and encode special characters
-            var formattedQuery = query.replace(/\s+/g, '+');
-            
-            // Construct the URL
+    function handleSearch(event) {
+        event.preventDefault();
+        var query = document.getElementById('searchQuery').value.trim();
+
+        // Check if it's a full URL or ends with a domain
+        const isFullURL = query.startsWith("https://");
+        const endsWithDomain = query.endsWith(".com") || query.endsWith(".ca") || query.endsWith(".net");
+
+        if (isFullURL) {
+            window.location.href = query;
+        } else if (endsWithDomain) {
+            window.location.href = "https://" + query;
+        } else {
+            // Format for Google search
+            var formattedQuery = encodeURIComponent(query.replace(/\s+/g, '+'));
             var searchURL = 'https://www.google.com/search?q=' + formattedQuery + '&udm=14';
-            
-            // Redirect to the Google search page with the formatted query
             window.location.href = searchURL;
         }
-    </script>
+    }
+</script>
+
     
     <div id="clock"></div>
     
     <div class="search">
     <form onsubmit="handleSearch(event)">
         <input type="text" placeholder="Google Search..." id="searchQuery" name="query" required autofocus>
-        <button id="searchButton" type="submit"><span class="material-symbols-outlined">
+    <button id="searchButton" type="submit"><span class="material-symbols-outlined">
 search
 </span></button>
     </form>
