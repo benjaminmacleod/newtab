@@ -1,394 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="UTF-8" />
+        <title>New Tab</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+        <style>
+            body {
+                background-image: url(images/wallpaper.jpg);
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .sectionHeader {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-top: 2em;
+                margin-left: 2em;
+                margin-right: 2em;
+            }
+            @media (max-width: 1070px) {
+                .sectionHeader {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .sectionClock {
+                    margin-left: 0;
+                    margin-right: 0;
+                    padding-left: 0;
+                    padding-right: 0;
+                    align-items: center;
+                    text-align: center;
+                }
+                #date {
+                    padding-left: 0 !important;
+                    text-align: center !important;
+                    font-size: 1.1em;
+                    margin: 0;
+                }
+                
+                #next-event {
+                    display: none;
+                }
+                
+            }
+            
+            .sectionSchedule {
+                margin-right: 2em;
+                margin-top: 1em;
+                margin-left: 2em;
+                border-radius: 8px;
+                background: rgba(171, 206, 238, 0.2);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                overflow: clip;
+            }
+            
+            #next-event{
+                padding: 1rem;
+                padding-left: 2em;
+                padding-right: 2em;
+                border-left: 5px solid #5289CD;
+                border-radius: 8px;
+                height: 100%;
+            }
+            
+            .event-box h2 {
+                font-family: 'Noto Serif', serif;
+                font-weight: 700;
+                color: #ffffff;
+                line-height: 1;
+                text-shadow: 0px 0px 5px rgba(47, 88, 141, 0.4);
+            }
+            
+            .event-box p {
+                font-family: 'Noto Sans', sans-serif;
+                font-weight: 400;
+                line-height: 0.4;
+                color: #ffffff;
+                text-shadow: 0px 0px 5px rgba(47, 88, 141, 0.4);
+            }
+            
+            .sectionClock {
+                margin-left: 2em;
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-right: 4em;
+                justify-content: center !important;
+                justify-items: center !important;
+            }
+            
+            #next-event {
+                margin-top: auto;
+                margin-bottom: auto;
+                height: 76%;
+            }
+            
+            #clock {
+                color: #ffffffaa;
+                text-shadow: 2px 2px 7px rgba(255, 255, 255, 0.3);
+                -webkit-text-stroke: 0.1px rgba(47, 88, 141, 0.5);
+                font-family: "Noto Serif", serif;
+                font-weight: 900;
+                padding: 0;
+                padding-right: 0.1em;
+                font-size: 8em;
+                padding-bottom: 0;
+                padding-top: 0;
+                line-height: 1;
+            }
+            .session {
+                font-family: "Gothic A1";
+                font-weight: 900;
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                font-size: 0.82em;
+                width: 0;
+                padding-right: 0.5em;
+                height: 0;
+            }
+            #date {
+                color: #ffffffcc;
+                text-shadow: 2px 2px 7px rgba(255, 255, 255, 0.1);
+                font-family: "Noto Sans", sans-serif;
+                font-weight: 600;
+                width: 100%;
+                padding: 0;
+                padding-top: 0.5em;
+                padding-left: 3em;
+                font-size: 1.1em;
+                margin: 0;
+            }
+            
+            .sectionSearch {
+                width: 100%;
+                align-content: center;
+                align-items: center;
+                margin-top: 2em;
+            }
+            
+            #searchForm {
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                gap: 0;
+                padding: 0;
+                
+            }
+            @media (max-width: 765px) {
+                #searchForm {
+                    max-width: 700px;
+                    margin-left: 2em;
+                    margin-right: 2em;
+                    gap: 0;
+                    padding: 0;
+                
+                }
+            }
+            input[type="text"] {
+                width: 100%;
+                margin-top: 1em;
+                font-size: 16px;
+                padding-left: 60px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                border-radius: 30px;
+                border: 0;
+                color: #A9A9A9;
+                box-sizing: border-box;
 
-  <meta http-equiv="refresh" content="300">
-
-  <title>New Tab</title>
-  <meta name="description" content="New Tab">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-
-  <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />     
-  <style>
-      body {
-          background-image: url(images/wallpaper.jpg);
-          background-size: cover;
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-      }
-      
- 	  h1, #clock, .gridtext, a, div, p, .bottom {
-          text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
-          color: #ffffff; /* Ensure text color contrasts well with the shadow */
-      }
-
-      #clock {
-          color: #ffffff;
-          font-family: Tahoma, "Trebuchet MS", sans-serif;
-          font-weight: 600;
-          text-align: center;
-          font-size: 150px;
-      }
-      
-      .search {
-            margin: auto;
-            width: 100%;
-            max-width: 600px;
-            padding-top: 20px;
-      }
-      
-      #searchQuery {
-          width: 80%;
-          min-width: 200px;
-          border: none;
-          background-color: #ffffff;
-          font-size: 16px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          padding-left: 10px;
-          border-radius: 10px;
-          box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
-      }
-      
-      textarea:focus, input:focus{
-    outline: none;
+            }
+            
+            button {
+                padding: 11px 13px;
+                margin-left: 0px;
+                background-color: #fff;
+                color: #717171;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                position: relative;
+                top: -4.33em;
+            }
+            
+            button:hover {
+                color: #414141;
+            }
+            
+            .material-symbols-outlined {
+                font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+            }
+            
+            a {
+                text-decoration: none;
+            }
+            input:focus {
+  outline: none; /* fallback for older browsers */
 }
-      .material-symbols-outlined {
-        font-size: 16px;
-        color: #ffffff;
-        font-variation-settings:
-            'FILL' 0,
-            'wght' 700,
-            'GRAD' 0,
-            'opsz' 20
-      }
-      #searchButton {
-          width: 20%;
-          display: auto;
-          max-width: 80px;
-          background-color: #4F82C4;
-          border: none;
-          padding-left: 4.5px;
-          padding-right: 4.5px;
-          padding-top: 9px;
-          padding-bottom: 9px;
-          font-size: 16px;
-          border-radius: 10px;
-          box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
-      }
-      
-      h1 {
-          font-family: arial;
-          color: #ffffff;
-          padding-left: 10%;
-          font-size: 28px;
-      }
-      
-      a {
-          text-decoration: none;
-      }
-      
-      .gridtext {
-          text-align: center;
-          font-family: arial;
-          white-space: normal;
-          text-decoration: none;
-          color: #ffffff;
-          font-size: 12px;
-          padding-top: 80px;
-      }
-      
-      .bookmark-media-sharesheet {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          row-gap: 50px;
-          padding-left: 10%;
-      }
 
-      .bookmark-icon {
-          width: 75px;
-          height: 75px;
-          display: block;
-          background-size: cover;
-          background-position: center;
-      }
+input:focus {
+  outline: none; /* keep the focus ring for keyboard users */
+}
 
+            h1 {
+                color: #ffffffee;
+                text-shadow: 0px 0px 5px rgba(47, 88, 141, 0.4);
+                -webkit-text-stroke: 0.1px rgba(47, 88, 141, 0.5);
+                font-family: "Noto Serif", serif;
+                font-weight: 900;
+                margin-left: 2em;
+            }
+            .gridtext {
+                text-align: center;
+                font-family: 'Noto Sans', sans-serif;
+                white-space: normal;
+                text-decoration: none;
+                color: #ffffff;
+                font-size: 11px;
+                padding-top: 80px;
+            }
+            
+            .sectionLinks {
+                margin: auto;
+            }
+            .bookmark-media-sharesheet {
+                display: flex;
+                flex-wrap: wrap;
+                align-content: center;
+                gap: 20px;
+                row-gap: 50px;
+                margin-right: 3em;
+                padding-left: 10%;
+                margin-bottom: 4em;
+            }
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+}
+            .bookmark-icon {
+                width: 75px;
+                height: 75px;
+                display: block;
+                background-size: cover;
+                background-position: center;
+                transition: transform 0.2s ease;
+            }
+            .bookmark-icon:hover {
+                animation: wiggle 0.4s ease-in-out;
+            }
       .bookmark-icon.acadiau {
-          background-image: url('assets/bookmarks/university.png');
+          background-image: url('assets/bookmarks/4x/university.png');
           width: 75px;
           height: 75px;
       }
-
+    
+            
       .bookmark-icon.outlook {
-          background-image: url('assets/bookmarks/outlook.png');
+          background-image: url('assets/bookmarks/4x/outlook.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.moodle {
-          background-image: url('assets/bookmarks/moodle.png');
+          background-image: url('assets/bookmarks/4x/moodle.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.collss {
-          background-image: url('assets/bookmarks/collss.png');
+          background-image: url('assets/bookmarks/4x/collss.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.hub {
-          background-image: url('assets/bookmarks/hub.png');
+          background-image: url('assets/bookmarks/4x/hub.png');
           width: 75px;
           height: 75px;
       }
 
-      .bookmark-icon.brytewave {
-          background-image: url('assets/bookmarks/brytewave.png');
+      .bookmark-icon.cenegage {
+          background-image: url('assets/bookmarks/4x/cenegage.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.library {
-          background-image: url('assets/bookmarks/library.png');
+          background-image: url('assets/bookmarks/4x/library.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.residence {
-          background-image: url('assets/bookmarks/residence.png');
+          background-image: url('assets/bookmarks/4x/residence.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.pearson {
-          background-image: url('assets/bookmarks/pearson.png');
+          background-image: url('assets/bookmarks/4x/pearson.png');
           width: 75px;
           height: 75px;
       }
       
       .bookmark-icon.list {
-          background-image: url('assets/bookmarks/list.png');
+          background-image: url('assets/bookmarks/4x/list.png');
           width: 75px;
           height: 75px;
       }
  
-      .bookmark-icon.finance {
-          background-image: url('assets/bookmarks/finance.png');
+      .bookmark-icon.mcgrawhill {
+          background-image: url('assets/bookmarks/4x/mcgrawhill.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.gmail {
-          background-image: url('assets/bookmarks/gmail.png');
+          background-image: url('assets/bookmarks/4x/gmail.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.docs {
-          background-image: url('assets/bookmarks/docs.png');
+          background-image: url('assets/bookmarks/4x/docs.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.slides {
-          background-image: url('assets/bookmarks/slides.png');
+          background-image: url('assets/bookmarks/4x/slides.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.sheets {
-          background-image: url('assets/bookmarks/sheets.png');
+          background-image: url('assets/bookmarks/4x/sheets.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.sites {
-          background-image: url('assets/bookmarks/sites.png');
+          background-image: url('assets/bookmarks/4x/sites.png');
           width: 75px;
           height: 75px;
       }
 
       .bookmark-icon.drive {
-          background-image: url('assets/bookmarks/drive.png');
+          background-image: url('assets/bookmarks/4x/drive.png');
           width: 75px;
           height: 75px;
       }
       
       .bookmark-icon.youtube {
-          background-image: url('assets/bookmarks/youtube.png');
+          background-image: url('assets/bookmarks/4x/youtube.png');
           width: 75px;
           height: 75px;
       }
-      
-      .bottom {
-        position: absolute;
-        font-family: arial;
-          font-weight: 800;
-        width: 100%;
-        text-align: center;
-        bottom: 30px;
-        font-size: 12px;
-      }
-    
-  </style>
-</head>
-<body onload="startTime()">
-<script>
-    function handleSearch(event) {
-        event.preventDefault();
-        var query = document.getElementById('searchQuery').value.trim();
-
-        // Check if it's a full URL or ends with a domain
-        const isFullURL = query.startsWith("https://");
-        const endsWithDomain = query.endsWith(".com") || query.endsWith(".ca") || query.endsWith(".net");
-
-        if (isFullURL) {
-            window.location.href = query;
-        } else if (endsWithDomain) {
-            window.location.href = "https://" + query;
-        } else {
-            // Format for Google search
-            var formattedQuery = encodeURIComponent(query.replace(/\s+/g, '+'));
-            var searchURL = 'https://www.google.com/search?q=' + formattedQuery + '&udm=14';
-            window.location.href = searchURL;
-        }
-    }
-</script>
-
-    
-    <div id="clock"></div>
-    
-    <div class="search">
-    <form onsubmit="handleSearch(event)">
-        <input type="text" placeholder="Google Search..." id="searchQuery" name="query" required autofocus>
-    <button id="searchButton" type="submit"><span class="material-symbols-outlined">
-search
-</span></button>
-    </form>
+        </style>
+    </head>
+<body>
+    <div class="sectionHeader">
+        <div class="sectionClock">
+            <div id="clock"></div>
+            <div id="date"></div>
+        </div>
+        <div class="sectionSchedule">
+            <div id="next-event"></div>
+        </div>
+        <div class="sectionSearch">
+                <form id="searchForm">
+                    <input type="text" id="searchInput" autofocus placeholder="Search or enter URL..." />
+                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
+                </form>
+        </div>
     </div>
-    <br>
-    <h1>Acadia University</h1>
-    
-    <div class="bookmark-media-sharesheet">
-        
-        <a href="https://www2.acadiau.ca/home.html" aria-label="Acadia University" target="_self" rel="noopener noreferrer" class="bookmark-icon acadiau"><div class="gridtext">Acadia University</div></a>
-        
-        <a href="https://outlook.office.com/mail/" aria-label="Outlook" target="_self" rel="noopener noreferrer" class="bookmark-icon outlook"><div class="gridtext">Outlook (0307744m)</div></a>
-        
-        <a href="https://moodle.acadiau.ca/my/" aria-label="Moodle" target="_self" rel="noopener noreferrer" class="bookmark-icon moodle"><div class="gridtext">Moodle (Acorn)</div></a>
-        
-        <a href="https://collss.acadiau.ca/" aria-label="Colleague Self Service" target="_self" rel="noopener noreferrer" class="bookmark-icon collss"><div class="gridtext">Colleague Self Service</div></a>
-        
-        <a href="https://hub.acadiau.ca/TDClient/39/Portal/Home/" aria-label="Hub Service Portal" target="_self" rel="noopener noreferrer" class="bookmark-icon hub"><div class="gridtext">Hub Service Portal</div></a>
-        
-        <a href="https://brytewave.redshelf.com/app/ecom/shelf" aria-label="Brytewave Reader" target="_self" rel="noopener noreferrer" class="bookmark-icon brytewave"><div class="gridtext">Brytewave (Textbooks)</div></a>
-        
-        <a href="https://library.acadiau.ca/home.html" aria-label="Vaughan Memorial Library" target="_self" rel="noopener noreferrer" class="bookmark-icon library"><div class="gridtext">Acadia Library</div></a>
-        
-        <a href="https://acadiau.starrezhousing.com/StarRezPortal/" aria-label="Star Rez Acadia" target="_self" rel="noopener noreferrer" class="bookmark-icon residence"><div class="gridtext">Residence Portal</div></a>
-        
-        <a href="https://plus.pearson.com/home" aria-label="Pearson +" target="_self" rel="noopener noreferrer" class="bookmark-icon pearson"><div class="gridtext">Pearson + (Textbooks)</div></a>
-        
-        <a href="https://docs.google.com/spreadsheets/d/1i-HE3LYKgedfjSE7UOc6swlQM8HRjWxuPJLHfwFdSY4/" aria-label="To Do List" target="_self" rel="noopener noreferrer" class="bookmark-icon list"><div class="gridtext">To Do List</div></a>
-        
-        <a href="https://docs.google.com/spreadsheets/d/1Uc9QvwDcH6O6Dt2k15jR6hjFHTKBiB8t1vLgx17Vk1I/" aria-label="Finance" target="_self" rel="noopener noreferrer" class="bookmark-icon finance"><div class="gridtext">Finances</div></a>
+    <div class="sectionLinks">
+        <h1>Acadia University</h1>
+        <div class="bookmark-media-sharesheet">
+            <a href="https://www2.acadiau.ca/home.html" aria-label="Acadia University" target="_self" rel="noopener noreferrer" class="bookmark-icon acadiau"><div class="gridtext">Acadia University</div></a>
+            <a href="https://outlook.office.com/mail/" aria-label="Outlook" target="_self" rel="noopener noreferrer" class="bookmark-icon outlook"><div class="gridtext">Outlook (0307744m)</div></a>
+            <a href="https://moodle.acadiau.ca/my/" aria-label="Moodle" target="_self" rel="noopener noreferrer" class="bookmark-icon moodle"><div class="gridtext">Moodle (Acorn)</div></a>
+            <a href="https://collss.acadiau.ca/" aria-label="Colleague Self Service" target="_self" rel="noopener noreferrer" class="bookmark-icon collss"><div class="gridtext">Colleague Self Service</div></a>
+            <a href="https://hub.acadiau.ca/TDClient/39/Portal/Home/" aria-label="Hub Service Portal" target="_self" rel="noopener noreferrer" class="bookmark-icon hub"><div class="gridtext">Hub Service Portal</div></a>
+            <a href="https://library.acadiau.ca/home.html" aria-label="Vaughan Memorial Library" target="_self" rel="noopener noreferrer" class="bookmark-icon library"><div class="gridtext">Acadia Library</div></a>
+            <a href="https://acadiau.starrezhousing.com/StarRezPortal/" aria-label="Star Rez Acadia" target="_self" rel="noopener noreferrer" class="bookmark-icon residence"><div class="gridtext">Residence Portal</div></a>
+            <a href="https://www.cengage.ca/dashboard/home" aria-label="Cenegage" target="_self" rel="noopener noreferrer" class="bookmark-icon cenegage"><div class="gridtext">Cenegage (Textbooks)</div></a>
+            <a href="https://myebooks.mheducation.com/bookshelf/ebooks" aria-label="McGraw Hill" target="_self" rel="noopener noreferrer" class="bookmark-icon mcgrawhill"><div class="gridtext">McGraw Hill (Textbooks)</div></a>
+            <a href="https://plus.pearson.com/home" aria-label="Pearson +" target="_self" rel="noopener noreferrer" class="bookmark-icon pearson"><div class="gridtext">Pearson + (Textbooks)</div></a>
+            <a href="https://docs.google.com/spreadsheets/d/14kmuHLdJPvmunlhrySNlIbZ0V9Un-M-GA4_K5ONKchg/" aria-label="To Do List" target="_self" rel="noopener noreferrer" class="bookmark-icon list"><div class="gridtext">To Do List</div></a>
+        </div>
+        <h1>Google Apps</h1>
+        <div class="bookmark-media-sharesheet">
+            <a href="https://mail.google.com/" aria-label="Gmail" target="_self" rel="noopener noreferrer" class="bookmark-icon gmail"><div class="gridtext">Gmail</div></a>
+            <a href="https://docs.google.com/" aria-label="Google Docs" target="_self" rel="noopener noreferrer" class="bookmark-icon docs"><div class="gridtext">Google Docs</div></a>
+            <a href="https://slides.google.com/" aria-label="Google Slides" target="_self" rel="noopener noreferrer" class="bookmark-icon slides"><div class="gridtext">Google Slides</div></a>
+            <a href="https://sheets.google.com/" aria-label="Google Sheets" target="_self" rel="noopener noreferrer" class="bookmark-icon sheets"><div class="gridtext">Google Sheets</div></a>
+            <a href="https://sites.google.com/" aria-label="Google Sites" target="_self" rel="noopener noreferrer" class="bookmark-icon sites"><div class="gridtext">Google Sites</div></a>
+            <a href="https://drive.google.com/" aria-label="Google Drive" target="_self" rel="noopener noreferrer" class="bookmark-icon drive"><div class="gridtext">Google Drive</div></a>
+            <a href="https://www.youtube.com/" aria-label="YouTube" target="_self" rel="noopener noreferrer" class="bookmark-icon youtube"><div class="gridtext">YouTube</div></a>
 
     </div>
- 
-    <br>
-    <br>
-    <h1>Google Apps</h1>
-    <div class="bookmark-media-sharesheet">
-        
-        <a href="https://mail.google.com/" aria-label="Gmail" target="_self" rel="noopener noreferrer" class="bookmark-icon gmail"><div class="gridtext">Gmail</div></a>
-        
-        <a href="https://docs.google.com/" aria-label="Google Docs" target="_self" rel="noopener noreferrer" class="bookmark-icon docs"><div class="gridtext">Google Docs</div></a>
-        
-        <a href="https://slides.google.com/" aria-label="Google Slides" target="_self" rel="noopener noreferrer" class="bookmark-icon slides"><div class="gridtext">Google Slides</div></a>
-        
-        <a href="https://sheets.google.com/" aria-label="Google Sheets" target="_self" rel="noopener noreferrer" class="bookmark-icon sheets"><div class="gridtext">Google Sheets</div></a>
-        
-        <a href="https://sites.google.com/" aria-label="Google Sites" target="_self" rel="noopener noreferrer" class="bookmark-icon sites"><div class="gridtext">Google Sites</div></a>
-        
-        <a href="https://drive.google.com/" aria-label="Google Drive" target="_self" rel="noopener noreferrer" class="bookmark-icon drive"><div class="gridtext">Google Drive</div></a>
-        
-        <a href="https://www.youtube.com/" aria-label="YouTube" target="_self" rel="noopener noreferrer" class="bookmark-icon youtube"><div class="gridtext">YouTube</div></a>
-
     </div>
-    <div class="bottom"><p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Benjamin MacLeod All Rights Reserved</p>
-</div>
-    <script>
-        function currentTime() {
-            let date = new Date(); 
-            let hh = date.getHours();
-            let mm = date.getMinutes();
-            let ss = date.getSeconds();
-            let session = "";
-
-            if(hh == 0){
-                hh = 12;
-            }
-            
-            if(hh > 12){
-                hh = hh - 12;
-                session = "˙";
-            }
-
-            mm = (mm < 10) ? "0" + mm : mm;
     
-            let time = session + hh + ":" + mm;
-
-            document.getElementById("clock").innerText = time; 
-            let t = setTimeout(function(){ currentTime() }, 1000);
-        }
-        
-        currentTime();
-    </script>
-<script>
-    function getFormattedDate() {
-    const date = new Date();
-    const options = { weekday: 'long', month: 'long' };
-    
-    // Get day, month, and weekday
-    const day = date.getDate();
-    const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(date);
-    const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date);
-    const year = date.getFullYear();
-
-    // Determine the appropriate suffix
-    let suffix = 'th';
-    if (day % 10 === 1 && day !== 11) suffix = 'st';
-    else if (day % 10 === 2 && day !== 12) suffix = 'nd';
-    else if (day % 10 === 3 && day !== 13) suffix = 'rd';
-
-    // Combine components into the final format
-    return `${weekday}, ${month} ${day}${suffix}, ${year}`;
-}
-
-function addDateToPage() {
-    const dateContainer = document.createElement('div');
-    dateContainer.id = 'date-container';
-    dateContainer.style.color = '#ffffff'; // Example: Make it white to match your page
-    dateContainer.style.textAlign = 'center'; // Align to center
-    dateContainer.style.fontFamily = 'Arial, sans-serif';
-    dateContainer.style.fontSize = '20px'; // Adjust as needed
-    dateContainer.textContent = getFormattedDate();
-
-    // Add to the page, e.g., before or after the clock
-    const clock = document.getElementById('clock');
-    clock.parentNode.insertBefore(dateContainer, clock.nextSibling);
-}
-
-// Run on page load
-addDateToPage();
-
-    </script>
+<script src="script.js"></script>
+<script src="clock.js"></script>
+<script src="date.js"></script>
+<script src="schedule.js"></script>
 </body>
 </html>
